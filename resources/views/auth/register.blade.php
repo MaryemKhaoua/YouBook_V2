@@ -12,18 +12,17 @@
 </head>
 
 <body>
-    {{-- @if ($errors->any())
-    <div>
-        <div> ERRORR</div>
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+ <nav class="navbar navbar-expand-lg navbar-light bg-info shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand h1" href="{{ route('books.index') }}">YouBook</a>
+    <div class="col text-end">
+      <a class="btn btn-sm btn-light" href="{{ route('books.create') }}">Add Book</a>
+      <a class="btn btn-sm btn-light" href="{{ route('user.register') }}">Register</a>
     </div>
-    @endif --}}
+  </div>
+</nav>
     <section class="vh-100" style="background-color: #eee;">
-        <div class="container h-100">
+    <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-lg-12 col-xl-11">
                     <div class="card text-black" style="border-radius: 25px;">
