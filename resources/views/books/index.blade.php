@@ -7,14 +7,21 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-info shadow-sm">
-    <div class="container-fluid">
-      <a class="navbar-brand h1" href="{{ route('books.index') }}">YouBook</a>
-      <div class="col text-end">
-        <a class="btn btn-sm btn-light" href="{{ route('books.create') }}">Add Book</a>
-      </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-info shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand h1" href="{{ route('books.index') }}">YouBook</a>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link btn btn-sm btn-light" href="{{ route('user.register') }}">Register</a>
+        </li>
+        <li class="nav-item">
+          {{-- <a class="nav-link btn btn-sm btn-light" href="{{ route('user.login') }}">Login</a> --}}
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 
   <div class="container mt-5">
     <div class="row row-cols-1 row-cols-md-3 g-4">
