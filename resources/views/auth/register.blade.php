@@ -16,8 +16,7 @@
   <div class="container-fluid">
     <a class="navbar-brand h1" href="{{ route('books.index') }}">YouBook</a>
     <div class="col text-end">
-      <a class="btn btn-sm btn-light" href="{{ route('books.create') }}">Add Book</a>
-      <a class="btn btn-sm btn-light" href="{{ route('user.register') }}">Register</a>
+      <a class="btn btn-sm btn-light" href="{{ route('user.login') }}">Login</a>
     </div>
   </div>
 </nav>
@@ -72,7 +71,7 @@
                                         </div>
 
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                            <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                                            <button type="submit"  class="btn btn-primary btn-lg">Register</button>
                                         </div>
 
                                     </form>

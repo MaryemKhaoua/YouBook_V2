@@ -12,11 +12,20 @@
     <a class="navbar-brand h1" href="{{ route('books.index') }}">YouBook</a>
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <a class="nav-link btn btn-sm btn-light" href="{{ route('user.register') }}">Register</a>
+        </li> --}}
+        <li class="nav-item">
+          <a class="nav-link btn btn-sm btn-light" href="{{ route('books.add') }}">Add</a>
         </li>
         <li class="nav-item">
-          {{-- <a class="nav-link btn btn-sm btn-light" href="{{ route('user.login') }}">Login</a> --}}
+          <a class="nav-link btn btn-sm btn-light" href="{{ route('books.reservation') }}">Reservation</a>
+        </li>
+        {{-- <li class="nav-item">
+          <a class="nav-link btn btn-sm btn-light" href="{{ route('user.login') }}">Login</a>
+        </li> --}}
+        <li class="nav-item">
+          <a class="nav-link btn btn-sm btn-light" href="{{ route('user.logout') }}">Log Out</a>
         </li>
       </ul>
     </div>

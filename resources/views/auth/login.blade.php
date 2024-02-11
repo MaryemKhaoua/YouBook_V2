@@ -8,20 +8,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <title>Login</title>
+    <title>Register</title>
 </head>
 
 <body>
-    {{-- @if ($errors->any())
-    <div>
-        <div> ERRORR</div>
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+ <nav class="navbar navbar-expand-lg navbar-light bg-info shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand h1" href="{{ route('books.index') }}">YouBook</a>
+    <div class="col text-end">
+      <a class="btn btn-sm btn-light" href="{{ route('user.register') }}">Register</a>
     </div>
-    @endif --}}
+  </div>
+</nav>
+
     <section class="vh-100" style="background-color: #eee;">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">

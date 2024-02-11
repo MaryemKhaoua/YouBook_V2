@@ -29,8 +29,7 @@
         <h1>Book Details</h1>
         <p><strong>Title:</strong> {{ $book->title }}</p>
         <p><strong>Description:</strong> {{ $book->description }}</p>
-        <p><strong>Reservation Status:</strong> {{ $book->is_reserved ? 'Reserved' : 'Not Reserved' }}</p>
-        
+       
         @if (!$book->is_reserved)
             <form method="POST" action="{{ route('books.reserve', $book->id) }}">
                 @csrf

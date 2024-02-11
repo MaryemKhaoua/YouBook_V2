@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\Reservation;
+use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
@@ -19,7 +21,7 @@ class BookController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function addBook()
   {
     return view('books.create');
   }
@@ -94,18 +96,17 @@ class BookController extends Controller
 
     public function reserve($id)
     {
-        $book = Book::find($id);
+        $reservation = new Reservation();
+        $reservation->book_id = $id;
+        $reservation->user_id = Auth::id(); 
+        $reservation->save();
     
-        if (!$book) {
-            return redirect()->route('books.index')->with('error', 'book makinsh hh');
-        }
-    
-        if ($book->is_reserved) {
-            return redirect()->route('books.show', $id)->with('error', 'book deja reserved ');
-        }
-    
-        $book->update(['is_reserved' => true]);
-    
-        return redirect()->route('books.show', $id)->with('success', 'book reserved binajaa7!!!');
-    }    
+        return redirect()->route('books.index')->with('success', 'Livre réservé avec succès.');
+    }
+    public function getReservation(){
+      $reservation = Reservation::where('user_id', Auth::id())->get();
+
+      return view ('books.reservation', ['reservation'=>$reservation]);
+    }
+       
 }
