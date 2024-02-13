@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Books</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>YouBook</title>
 </head>
+<style>
+    .navbar-brand {
+    color: #339898;
+    font-weight: bold;
+}
+
+.navbar-nav {
+    margin-left: auto;
+}
+</style>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-info shadow-sm">
-  <div class="container-fluid">
-    <a class="navbar-brand h1" href="{{ route('books.index') }}">YouBook</a>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        {{-- <li class="nav-item">
-          <a class="nav-link btn btn-sm btn-light" href="{{ route('user.register') }}">Register</a>
-        </li> --}}
-        <li class="nav-item">
-          <a class="nav-link btn btn-sm btn-light" href="{{ route('books.add') }}">Add</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link btn btn-sm btn-light" href="{{ route('books.reservation') }}">Reservation</a>
-        </li>
-        {{-- <li class="nav-item">
-          <a class="nav-link btn btn-sm btn-light" href="{{ route('user.login') }}">Login</a>
-        </li> --}}
-        <li class="nav-item">
-          <a class="nav-link btn btn-sm btn-light" href="{{ route('user.logout') }}">Log Out</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container">
+        <a class="navbar-brand" href="{{ route('books.index') }}" style="color: #1F2532;"><span style="color: #597E52;" class="nav-brand-two">You</span>Book</a> 
+            <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+					@if (auth()->user()->isAdmin())
+					<li class="nav-item">
+						<a class="nav-link navigation" href="{{ route('books.add') }}">Add Book</a>
+					</li>
+          @endif
+					<li class="nav-item">
+						<a class="nav-link ml-5 navigation" href="{{ route('books.reservation') }}">Reservation</a>
+					</li>
+                    <li class="nav-item">
+						<a class="nav-link ml-5 navigation" href="{{ route('user.logout') }}">Log Out</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
   <div class="container mt-5">
     <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -45,6 +54,7 @@
             <div class="card-footer">
               <div class="row">
                 <div class="col">
+                @if (auth()->user()->isAdmin())
                   <a href="{{ route('books.edit', $book->id) }}" class="btn btn-primary btn-sm">Edit</a>
                 </div>
                 <div class="col">
@@ -53,6 +63,7 @@
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                   </form>
+                  @endif
                 </div>
                 <div class="col">
                   <a href="{{ route('books.show', $book->id) }}" class="btn btn-info btn-sm">Details</a>
