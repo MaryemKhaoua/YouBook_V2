@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Auth;
+use App\services\BookService;
 
 class BookController extends Controller
 {
@@ -37,7 +38,11 @@ class BookController extends Controller
              'title' => 'required|string|max:255',
              'description' => 'required|string|max:700',
          ]);
-     
+         
+         if (!BookService::checkBook($request->input('title'))) {
+          return redirect()->back()->withErrors(['title' => 'book deja kayn']);
+      }
+
          Book::create([
              'title' => $request->input('title'),
              'description' => $request->input('description'),
